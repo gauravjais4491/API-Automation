@@ -1,0 +1,30 @@
+{
+  "name": "api-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha 'test' ",
+    "single": "mocha",
+    "test-report": "mocha 'test' --reporter mochawesome --require mochawesome/register"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wdio/mocha-framework": "^8.16.10",
+    "api-testing": "^1.6.0",
+    "axios": "^1.5.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.5.1",
+    "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.8",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3"
+  }
+}
