@@ -5,16 +5,16 @@ const should = chai.should();
 const axios = require('axios')
 const { before } = require('mocha');
 
-let userId = undefined;
+let newuser = undefined;
 
 before(async () => {
-    userId = await createUser();
+    newuser = await createUser();
 })
 
 
 describe("Delete User", () => {
     it('should delete user', async () => {
-        const response = await axios.delete(App_Url + "/deleteUserInfo/" + userId._id)
+        const response = await axios.delete(App_Url + "/deleteuser/" + newuser._id)
         expect(response.status).to.be.equal(200)
         expect(response.data).to.be.an('object')
     })
