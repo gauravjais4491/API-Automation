@@ -10,10 +10,8 @@ const createUser = async () => {
         age: 23
     }
 
-    let response = await axios.post(App_Url + "/postUserInfo", payload)
+    let response = await axios.post(App_Url + "/postuserinfo", payload)
 
     return response.data;
 }
-
-
 module.exports = { App_Url, createUser }

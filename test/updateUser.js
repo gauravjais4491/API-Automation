@@ -6,10 +6,10 @@ const axios = require('axios')
 const { before } = require('mocha');
 
 
-let userId = undefined;
+let newuser = undefined;
 
 before(async () => {
-    userId = await createUser();
+    newuser = await createUser();
 })
 
 describe('Update User', () => {
@@ -20,7 +20,8 @@ describe('Update User', () => {
             email: "kuldeep@example.com",
             age: 34
         }
-        const response = await axios.put(App_Url + "/updateUserInfo/" + userId._id, payload)
+        console.log(newuser);
+        const response = await axios.put(App_Url + "/updateUser/" + newuser._id, payload)
         expect(response.status).to.be.equal(200)
         expect(response.data).to.be.an('object')
     });
@@ -29,7 +30,7 @@ describe('Update User', () => {
         const payload = {
             email: "sarukh@example.com",
         }
-        const response = await axios.put(App_Url + "/updateUserInfo/" + userId._id, payload)
+        const response = await axios.put(App_Url + "/updateUser/" + newuser._id, payload)
         expect(response.status).not.to.be.equal(201)
         expect(response.data).to.be.an('object')
     });
@@ -38,7 +39,7 @@ describe('Update User', () => {
         const payload = {
             age: 120
         }
-        const response = await axios.put(App_Url + "/updateUserInfo/" + userId._id, payload)
+        const response = await axios.put(App_Url + "/updateUser/" + newuser._id, payload)
         expect(response.status).not.to.be.equal(201)
         expect(response.data).to.be.an('object')
     });
@@ -47,7 +48,7 @@ describe('Update User', () => {
         const payload = {
             name: "Salman Khan",
         }
-        const response = await axios.put(App_Url + "/updateUserInfo/" + userId._id, payload)
+        const response = await axios.put(App_Url + "/updateUser/" + newuser._id, payload)
         expect(response.status).not.to.be.equal(201)
         expect(response.data).to.be.an('object')
     });
@@ -59,7 +60,7 @@ describe('Update User', () => {
                 email: "virat@example.com",
                 age: 34
             }
-            const response = await axios.put(App_Url + "/updateUserInfo/" + 1234567, payload)
+            const response = await axios.put(App_Url + "/updateUser/" + 1234567, payload)
             expect(response.status).not.to.be.equal(200)
             expect(response.data).to.be.an('object')
 
@@ -78,7 +79,7 @@ describe('Update User', () => {
         const payload = {
             email: "sarukh@example.com",
         }
-        const response = await axios.put(App_Url + "/updateUserInfo/" + userId._id, payload)
+        const response = await axios.put(App_Url + "/updateUser/" + newuser._id, payload)
         expect(response.status).not.to.be.equal(201)
         expect(response.data.email).to.be.equal("sarukh@example.com")
     });

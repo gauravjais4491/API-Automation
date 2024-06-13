@@ -76,7 +76,7 @@ exports.updateUserInfo = async (req, res) => {
         var updateQuery = { _id: req.params.userid }
 
         const payload = { name, email, age }
-
+        
         const updateUser = await User.findByIdAndUpdate(updateQuery, {
             $set: payload
         })
